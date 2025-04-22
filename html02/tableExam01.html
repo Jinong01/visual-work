@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .std-table{
+            border: 1px solid black;
+            border-collapse: collapse; /*선의 영역구분 통합*/
+        }
+
+        /*(id, name, css) XX, XX*/
+        .std-table th,td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <!-- <colgroup> <col> </col> </colgroup>
+        cell 간의 width 조절 
+    -->
+    <!-- thead > 헤더영역, tbody > 컨텐츠영역, tfoot > 토탈 등 이지만 잘 안씀씀
+        tr > tablerow > row를 뜻함
+        th > tableheader > 헤더쓸때 사용, 굵은 글씨 자동
+        td > table data > 내용을 적을 때 사용 
+    -->
+    <div>
+        <table class="std-table">
+            <colgroup>
+                <col width="20%"/>
+                <col width="60%"/>
+                <col width="20%"/>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>학번</th>
+                    <th>이름</th>
+                    <th>성별</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>st101</td>
+                    <td>김김김</td>
+                    <td>남자</td>
+                </tr>
+                <tr>
+                    <td>st102</td>
+                    <td>이이이</td>
+                    <td>여자</td>
+                </tr>
+                <tr>
+                    <td>st103</td>
+                    <td>박박박</td>
+                    <td>남자</td>
+                </tr>
+                <tr>
+                    <td>st104</td>
+                    <td>신신신</td>
+                    <td>여자</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

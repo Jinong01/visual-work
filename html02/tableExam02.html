@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- margin 공간과 공간사이 / padding 공간과 안에 있는 컨텐츠 사이-->
+    <style>
+        .header{
+            text-align: center;
+            margin-top: 50px;
+        }
+        .table{
+            border: 1px, solid, black;
+            width: 800px;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        .table th,td{
+            border: 1px solid black;            
+        }
+        .table td:nth-child(1), td:nth-child(3){
+            text-align: center;
+        }        
+    </style>
+    <!--nth-child > roop-->
+</head>
+<body>
+    <!-- 시멘틱 태그 > 웹표준-->
+     <main>
+        <header class="header">
+            <h2>게시판</h2>
+        </header>
+        <section class="main">
+            <table class="table">
+                <colgroup>
+                    <col style="width: 10%;">
+                    <col style="width: 45%;">
+                    <col style="width: 15%;">
+                    <col style="width: 30%;">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>글쓴이</th>
+                        <th>날짜</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>안녕하세요</td>
+                        <td>관리자</td>
+                        <td>2025-04-22</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>안녕하세요2</td>
+                        <td>관리자</td>
+                        <td>2025-04-22</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>안녕하세요3</td>
+                        <td>관리자</td>
+                        <td>2025-04-22</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>안녕하세요4</td>
+                        <td>관리자</td>
+                        <td>2025-04-22</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">마지막 예제</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+     </main>
+</body>
+</html>
