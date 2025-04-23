@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+        /*
+            static : 기본 문서의 흐름에 위치
+            relative : 상대적 위치 > 시작점 내 이전 공간 다음 > relative 는 이동시키면 원래 자리에 흔적?을 남긴다
+                        top, left, bottom, right 값을 조정하여 위치이동 가능
+            absolute : relative 와 비슷해보이나 매우 다름 > absolute 는 그 위치 위에 띄우는 거라 그 밑에 뭘 넣을 수 있다 > 레이어 위에 레이어?
+                        top, left, bottom, right 의 시작점이 문서 기준(본인 이전공간의 위치와 무관)
+            fixed : 고정 > 스크롤을 내려도 움직이지 않는다.
+            sticky : relative + fixed > top, left, bottom, right 를 이용하여 임계점까지는 움직이나 그이후는 고정
+            z-index : 앞뒤 겹치는 순서를 조절할 수 있다
+        */
+        .pos1{
+            position:  static;
+            background-color: bisque;
+        }
+        .pos2{
+            position:  relative;
+            background-color: #aaeeaa;
+        }
+        .pos3{
+            position:  relative;
+            top: 10px;
+            left: 100px;
+            background-color: #b7b7b7;
+        }
+        .pos4{
+            position:  absolute;
+            background-color: #b870aa;
+        }
+        .pos5{
+            position:  absolute;
+            top: 10px;
+            left: 100px;
+            background-color: #a7a7a7;
+        }
+        .pos6{
+            position:  static;
+            background-color: bisque;
+        }
+        .pos7{
+            position:  fixed;
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="pos1">1</div>
+        <div class="pos2">2</div>
+        <div class="pos3">3</div>
+        <div class="pos4">4</div>
+        <div class="pos5">5</div>
+        <div class="pos6">6</div>
+        <div class="pos7">7</div>
+    </main>
+</body>
+</html>

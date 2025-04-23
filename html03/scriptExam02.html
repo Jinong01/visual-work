@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+    //
+    /*
+        여러줄 주석
+        함수기반 프로그래밍
+        함수 밖에는 전역
+        함수는 해석은 하지만 호출에 의해서만 실행
+        함수 외 코드는 바로 실행 됨
+        인터프리터 언어이기 때문에 영역자체가 코드라인 이라고 보면 된다.
+    */
+    let val; // 일반 변수
+    const val2 = 10; // 불변형 변수, 변경이 안돼기 때문에 초기기값이 반드시 필요
+
+    // 자바스크립트에서 데이터 객체를 선언하는 법
+    const obj = {}; // 빈 객체
+    const obj2 = {
+        id : 'admin',
+        pwd : '1234',
+        age : 10
+    };
+
+    console.log(obj);
+    // 자바스크립트 객체는 없던 변수나 함수를 선언 후에 내용으로 추가할 수 있다.
+    obj.name = '홍길동';
+    obj['age'] = 500;
+
+    console.log(obj);
+</script>
+</html>

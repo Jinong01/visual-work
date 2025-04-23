@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="before">기&nbsp;&nbsp;&nbsp;본 :</div>
+    <div id="after">오름차순 :</div>
+    <div id="after2">내림차순 :</div>
+</body>
+<script>
+    const arr = [];
+    for(let i = 0; i < 15; i++){
+        let rand = Math.floor(Math.random() * 30)+1;
+        arr.push(rand);
+    }
+    const before = document.getElementById('before');
+    const after = document.getElementById('after');
+    const after2 = document.getElementById('after2');
+
+
+    before.append(arr.join(','));
+    arr.sort((a,b) => (a-b)); // a-b 값으로 sort 함, sort () 안의 값이 양수가 나오면 바꿈
+    after.append(arr.join(','));
+    arr.sort((a,b) => (b-a)); // b-a 값으로 sort 함
+    after2.append(arr.join(','));
+</script>
+</html>

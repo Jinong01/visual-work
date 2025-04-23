@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="canvas"></div>
+</body>
+<script>
+    // id, name, class로 식별할 수 있지만 리턴값이 id는 단일객체 name, class는 중복을 허용한다는걸 전제로 깔기 때문에 배열로 나온다
+    const arr = [];
+    for(let i = 0; i < 15; i++){
+        let rand = Math.floor(Math.random() * 30)+1;
+        arr.push(rand);
+    }
+    console.log('배열', arr)
+    //삭제 - pop() 마지막요소를 반환하고 삭제
+    const last = arr.pop();
+    console.log('마지막요소 삭제', last);
+    console.log(arr);
+
+    //삭제 - shift() 첫번째요소를 반환하고 삭제
+    const f = arr.shift();
+    console.log('첫번째요소 삭제', f);
+    console.log(arr);
+
+    //위치 찾기 indexOf 는 중복값이 있을때 첫번째 위치만 반환해준다
+    console.log(arr.indexOf(7));
+    //중복개체가 있을 경우 마지막 위치 찾기
+    console.log(arr.lastIndexOf(7));
+
+    //존재여부만 판단
+    console.log(arr.includes(7));
+
+    //삭제2 - 원하는 위치로부터 지정한 개수 지우기(시작위치 포함) - 삭제값 반환
+    const removed = arr.splice(0,1);
+    console.log(arr, removed);
+
+    //삭제3 - 지우고 바로 데이터 삽입 
+    const arr02 = [1,2,3,4,5];
+    arr02.splice(0,2,10,11); // (시작, 개수, 삽입데이터들..)
+    console.log(arr02);
+
+    //삽입만 가능
+    arr02.splice(2,0,12);
+    console.log(arr02);
+    
+    //삭제는 하지않고 부분 요소만 추출
+    console.log(arr02.slice(0,2));
+    console.log(arr02);
+
+    //배열을 구분자를 붙혀서 하나의 string 으로 변경
+    const str = arr02.join(',');
+    console.log(str);
+
+    //html 객체 가져오기
+    const canvasDiv = document.getElementById('canvas');
+    canvasDiv.append(str); // html 코드를 코드로 인식해서 입력 가능
+    //canvasDiv.textContent = str; // textContent 는 무조건 텍스트로 인식
+</script>
+</html>
