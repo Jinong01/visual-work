@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="korean">한글입력</label>
+        <input type="text" id="korean" pattern="^[가-힣]*$" placeholder="한글만 입력가능"/><br/>
+
+        <label for="eng">영문입력</label>
+        <input type="text" id="english" pattern="^[aA-zZ]*$" placeholder="영문만 입력가능"/>
+        <button type="submit">제출</button>
+    </form>
+</body>
+<script>
+    //정규식 > 특정 문자열 패턴을 만들어서 거기에 매칭이 되면 true
+
+    function initEvent(){
+        //자바스크립트로 이벤트 부여
+        const koreanEl = document.getElementById('korean');
+        const englishEl = document.getElementById('english');
+
+        koreanEl.addEventListener('input', 
+        (e)=>{
+            console.log(this);
+            const koreanRexgp = /[^ㄱ-ㅎ ㅏ-ㅣ 가-힣]/g;
+            e.target.value = e.target.value.replace(koreanRexgp, '');
+        });
+
+        englishEl.addEventListener('input', 
+        (e)=>{
+            const englishRexgp = /[^aA-zZ0-9]/g;
+            e.target.value = e.target.value.replace(englishRexgp, '');
+        });
+    }
+        
+
+    //시작함수 -> html 랜더링 된 후 자동실행
+    (function() {
+        initEvent();
+    })();
+</script>
+</html>

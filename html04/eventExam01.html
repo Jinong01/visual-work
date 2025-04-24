@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            width: 600px;
+            height: 500px;
+        }
+        .container{
+            display : flex;
+            gap : 10px;
+            width : 600px;
+            height: 450px;
+            overflow: auto; /*높이보다 내용이 크면 스크롤*/
+            flex-wrap: wrap; /*지정된 가로내용보다 내용이 길면 줄이 바뀐다.*/
+            border: 1px solid black;
+            align-content: flex-start;
+        }
+        .item{
+            width: 150px;
+            height: 150px;
+            border: 1px solid black;
+        }
+        .btn-box{
+            text-align: center;
+            margin-top: 10px;
+        }
+        .btn{
+            width: 70px;
+            height: 36px;
+            border: none;
+            color: white;
+            background-color: white;
+            border-radius: 5px; /*모서리 둥글게*/
+        }
+        .btn-ok{
+            background-color: #6a6af7a9;
+        }
+        .btn-cancle{
+            background-color: rgba(128, 128, 128, 0.685);
+        }
+    </style>
+</head>
+<body>
+    <main class="main">
+        <div id="canvas" class="container"></div>
+        <div class="btn-box">
+            <button class="btn btn-ok" onclick="javascript:createDiv()">생성</button>
+            <button class="btn btn-cancle" onclick="javascript:deleteDiv()">삭제</button>
+        </div>
+    </main>
+</body>
+<script>
+
+
+
+    const canvas = document.getElementById('canvas');
+    let divArr = [];
+
+    //버튼 함수는 보통 익명함수로 만든다
+    const createDiv = () => {
+        const div = document.createElement('div');
+        div.className = 'item';
+        div.style.backgroundColor = randColor();
+        divArr.push(div);
+
+        //캔버스 내용 지우기
+        canvas.innerHTML = '';
+
+        divArr.forEach((div, index) => {
+            canvas.append(div)
+        });
+    }
+
+    const deleteDiv = () => {
+        canvas.innerHTML = '';
+        //div 에서 맨 마지막 삭제
+        divArr.pop();
+        divArr.forEach((div, index) => {
+            canvas.append(div)
+        });
+    }
+
+    function randColor(){
+        const colors = [];
+        for(let i = 0; i<3; i++){
+            const val = Math.floor(Math.random()*256);
+            let hex = val.toString(16);
+            // 16진수는 보통 2자리 표현
+            if(hex.length === 1){
+                hex = '0' + hex;
+            }
+            colors.push(hex);
+        }
+        return '#' + colors.join('');
+    }
+</script>
+</html>

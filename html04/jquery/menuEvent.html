@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .menu-box{
+            height: 80px;
+            line-height: 80px;
+            background-color: #b5c6c6;
+        }
+        .menu-items{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            
+        }
+        .menu-item{
+            margin: 0;
+            padding: 0;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+        }
+        
+        
+        .menu-item a{
+            text-decoration: none;
+            color: white;
+            width: 100px;
+            height: 40px;
+            display: inline-block;
+            border-radius: 10px;
+        }
+        .menu-item a:visited{
+            color: white;
+        }
+        .menu-item a:hover{
+            color: burlywood;
+        }
+        .menu-item a.active{
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <nav class="menu-box">
+        <ul class="menu-items">
+            <li class="menu-item" id="one"><a class="active" href="javascript:goMenu('one')">1</a></li>
+            <li class="menu-item" id="two"><a href="javascript:goMenu('two')">2</a></li>
+            <li class="menu-item" id="three"><a href="javascript:goMenu('three')">3</a></li>
+            <li class="menu-item" id="foue"><a href="javascript:goMenu('four')">4</a></li>
+        </ul>
+    </nav>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script>
+    function goMenu(typeName){
+        const id = '#' + typeName;
+        $('.menu-items').find('li').find('a').removeClass('active');
+        $('.menu-items').find(id).find('a').addClass('active');
+    }
+</script>
+</html>

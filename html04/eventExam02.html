@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="korean">한글입력</label>
+        <input type="text" id="korean" pattern="^[가-힣]*$" placeholder="한글만 입력가능" oninput="validKorean(this)"/><br/>
+
+        <label for="eng">영문입력</label>
+        <input type="text" id="eng" pattern="^[aA-zZ]*$" placeholder="영문만 입력가능" oninput="validEnglish(this)"/>
+        <button type="submit">제출</button>
+    </form>
+</body>
+<script>
+    //정규식 > 특정 문자열 패턴을 만들어서 거기에 매칭이 되면 true
+
+    function validKorean(inputEle){
+        const koreanRegp = /[^ㄱ-ㅎ ㅏ-ㅣ 가-힣]/g;
+        inputEle.value = inputEle.value.replace(koreanRegp, '');
+    }
+    
+    function validEnglish(inputEle){
+        const englishRegp = /[^aA-zZ0-9]/g;
+        inputEle.value = inputEle.value.replace(englishRegp, '');
+    }
+</script>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="okBtn">확인</button>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script>
+    //jquery = $
+    const btn = document.getElementById('okBtn');
+    const btn02 = $('#okBtn');
+
+    btn02.on('click', () => {
+        alert('확인');
+    })
+
+</script>
+</html>

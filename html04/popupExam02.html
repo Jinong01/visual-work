@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="openPopup()">팝업생성</button><br/>
+    <button onclick="callEventPopup()">팝업함수실행</button><br/>
+    <button onclick="closePopup()">팝업닫기</button>
+</body>
+<script>
+
+    let pop = '';
+    const openPopup = () => {
+        pop = window.open('childPopup.html', 'popup', 'top=200,left=300,width=500,height=400,scrollbars=yes,resizable=yes');    
+    }
+
+    const closePopup = () => {
+        pop.close();
+    }
+
+    const callEventPopup = () => {
+        if(pop && !pop.closed){
+            pop.focus();
+            pop.callFunc('부모창에서 실행')
+        }
+    }
+
+    function callParentFunc (str) {
+        alert(str);
+    }
+</script>
+</html>
