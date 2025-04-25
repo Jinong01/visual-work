@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            width: 600px;
+            height: 500px;
+        }
+        .container{
+            display : flex;
+            gap : 10px;
+            width : 600px;
+            height: 450px;
+            overflow: auto; /*높이보다 내용이 크면 스크롤*/
+            flex-wrap: wrap; /*지정된 가로내용보다 내용이 길면 줄이 바뀐다.*/
+            border: 1px solid black;
+            align-content: flex-start;
+        }
+        .item{
+            width: 150px;
+            height: 150px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <main class="main">
+        <div id="canvas" class="container"></div>
+        <div>
+            <button class="btn btn-ok" id="createBtn">생성</button>
+            <button class="btn btn-cancel" id="deleteBtn">삭제</button>
+        </div>
+    </main>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script>
+    const canvas = $('#canvas');
+    let divArr = [];
+
+    const createBtn = $('#createBtn');
+    createBtn.on('click', () => {
+        const div = $('<div></div>');
+        div.addClass('item');
+        div.css('backgroundColor', randColor());
+        divArr.push(div);
+
+        canvas.empty();
+
+        divArr.forEach((div, index) => {
+            canvas.append(div);
+        })
+    })
+
+    const deleteBtn = $('#deleteBtn');
+    deleteBtn.on('click', () => {
+        canvas.empty();
+        divArr.pop();
+        divArr.forEach((div, index) => {
+            canvas.append(div);
+        })
+    });
+
+    function randColor() {
+        const colors = [];
+        for(let i = 0; i<3; i++){
+            const val = Math.floor(Math.random()*256);
+            let hex = val.toString(16);
+            if(hex.length === 1){
+                hex = '0' + hex;
+            }
+            colors.push(hex);
+        }
+        return '#' + colors.join('');
+    }
+</script>
+</html>
